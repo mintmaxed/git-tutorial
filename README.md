@@ -1,2 +1,4 @@
-# git-tutorial
-git tutorial for junior seminar s24
+# introduction
+This is my git tutorial for junior seminar s24
+
+## 
