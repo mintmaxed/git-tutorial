@@ -30,9 +30,8 @@ b = 2
 c = 3
 
 print("hello!")
-print(a + b)
-print(b + c)
 ```
+If you run the program, it should output `hello!`
 
 ## commits
 ### committing
@@ -50,3 +49,22 @@ Every commit comes with a message attached. This is especially useful in larger-
 If you check `git status` again, there should be no red or green messages, because the local is fully up to date with the repository.
 
 ### making changes
+Let's edit `example.py` a bit. To the end of the file, add 
+```python
+print(a + b)
+```
+Now, if you run the program, it should output
+```shell
+hello!
+3
+```
+Save your changes, and then switch back to the command line terminal. If we run `git status` now, you can see that `example.py` is marked in red as "modified," because changes have been made but have not yet been staged or committed. Let's fix that. Once again, to stage our changes, use the command:
+```shell
+git add example.py
+```
+and to commit them, use
+```shell
+git commit -m "print a + b"
+```
+You can double check that your staging and commits have been done correctly by entering `git status` at any point in this process.
+
