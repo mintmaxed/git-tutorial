@@ -141,3 +141,50 @@ git switch master
 ```
 The `example.py` file should have reverted once again to the original commit before `branch1`, with none of our `branch1` changes or previously stashed changes showing.
 Let's make some different changes for the `master` branch.
+```python
+# master branch
+e = "bada bing bada boom"
+print(e)
+print("this is the master branch")
+```
+Once again, save and commit your changes to the master branch.
+```shell
+git add example.py
+git commit -m "main branch updates"
+```
+Both of our branches now have their own changes applied to the same base file, and both can be maintained simultaneously. 
+
+## merging and rebasing
+If and when you would like to reconcile two different branches, there are two main methods: merging and rebasing. Merging essentially squishes the most recent commits of both branches together into one file. Rebasing takes the changes applied to one branch and "replays" them on top of the second branch until all changes have been applied to the final file. There are advantages and disadvantages to each method, but usage depends largely on the particular situation and on personal preference. This tutorial will cover how to use `rebase`.
+
+You should still be on the `master` branch, but you can double check using `git branch`. If you aren't, switch over. To rebase our two branches, use the command
+```shell
+git rebase branch1
+```
+
+The terminal has returned an error! This is because the changes we have made to each branch conflict with each other. Depending on which text editor you're using, it may even highlight in the file itself where the conflict is. There are different ways to resolve merge/rebase conflicts, use your best judgement depending on the situation. For this example, we will save the changes of both branches. VSCode has a handy little button that says `Accept Both Changes`, but you can do this manually by deleting the lines with angle brackets (`<<<<<<<`, `>>>>>>>`) and with the equal signs (`=======`). Your code should look like this:
+```python
+a = 1
+b = 2
+c = 3
+
+print("hello!")
+print(a + b)
+print(b + c)
+
+# branch1
+d = "teehee"
+print(d)
+print("this is a new branch!")
+# master branch
+e = "bada bing bada boom"
+print(e)
+print("this is the master branch")
+```
+Save, stage, and commit as per usual to finalize the rebase:
+```shell
+git add .
+git commit -m "successful rebase"
+```
+
+That concludes the tutorial! Thanks for following along. :)
