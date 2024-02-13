@@ -18,3 +18,9 @@ The terminal should return:
 Initialized Git repository in C:/Users/[user]/[location]/.git/
 ```
 
+## files
+Let's make a basic file to commit to our repository. In the same folder/directory, create a new file. You can do this one of two ways: First, open your File Explorer UI, navigate to the folder, and right click to create a new file. Alternatively, you can enter into the command line prompt
+```shell
+touch example.py
+```
+Great! Now we should have a basic python file. Open it in the text editor of your choice - I'll be using VSCode.
