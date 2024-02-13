@@ -68,3 +68,36 @@ git commit -m "print a + b"
 ```
 You can double check that your staging and commits have been done correctly by entering `git status` at any point in this process.
 
+## stashes and branches
+### stashing
+Stashing is a functionality where you can save your local changes, but clean the working tree. Any edits will be reverted to the previous commit, but your stashed changes can be recovered at any time. Having a clean working tree is especially useful when working with branches.
+
+Let's make some sample changes to stash. To the bottom of example.py, add the following code: 
+```python
+# stashing
+d = "secret stashed changes"
+print(d)
+```
+Once you save, the full program should look like this:
+```python
+a = 1
+b = 2
+c = 3
+
+print("hello!")
+print(a + b)
+
+#stashing
+d = "secret stashed changes"
+print(d)
+```
+and the output should be
+```shell
+hello!
+3
+secret stashed changes
+```
+
+If you run `git status` right now, you will see the same "modified: example.py" message in red as before.
+Now, enter `git stash`. If you check example.py, you will see that the section we just added under the "stashing" comment no longer exists, because the file has been reverted to the previous commit. If you run `git status`, you will see that the working tree is clean.
+
